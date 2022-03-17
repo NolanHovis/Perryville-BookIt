@@ -1,0 +1,14 @@
+<% if @book.errors.any? %> 
+  <% byebug %>
+  <% @book.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<%= form_with(model: @book, url: @url) do |form| %>
+  <%= form.label :title, "Title:" %>
+  <%= form.text_field :title %>
+  <%= form.label :description, "Description:" %>
+  <%= form.text_area :description %>
+  <%= form.submit "Update Book" %>
+<% end %>
